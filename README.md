@@ -14,7 +14,7 @@ A little about me:
 
 ## Get to know more about me!
 
-### **Some things that I like:**
+### **Things that I like:**
 * Shopping 
 * Baking
 * Nature

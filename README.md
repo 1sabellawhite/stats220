@@ -14,8 +14,8 @@ A little about me:
 
 ## Get to know more about me!
 
-### **Things that I like:**
-* Shopping 
+### Things that I like:
+* **Shopping** (*I have an addiction*)
 * Baking
 * Nature
 * NYT games, *ranked in this order*:
@@ -24,7 +24,7 @@ A little about me:
 3. [Strands](https://www.nytimes.com/games/strands)
 4. [Wordle](https://www.nytimes.com/games/wordle/index.html)
 
-### **Things I dislike:**
+### Things I dislike:
 * Sprite Zero
 * Going to the gym
 

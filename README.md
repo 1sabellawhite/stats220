@@ -12,9 +12,9 @@ A little about me:
 - I am taking STATS 220 because I want to expand my knowledge of R programming as it is a very useful skill.
 - I am interested in learning about data visualisation and I also found it very interesting how you used drawings to collect data.
 
-## Get to know me more!
+## Get to know more about me!
 
-**Some things that I like:**
+### **Some things that I like:**
 * Shopping 
 * Baking
 * Nature
@@ -24,7 +24,7 @@ A little about me:
 3. [Strands](https://www.nytimes.com/games/strands)
 4. [Wordle](https://www.nytimes.com/games/wordle/index.html)
 
-**Things I dislike:**
+### **Things I dislike:**
 * Sprite Zero
 * Going to the gym
 

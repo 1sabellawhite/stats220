@@ -1,0 +1,98 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+h2{
+    color:#335c3e;
+    text-align: center;
+}
+
+h3 {
+    color:#335c3e;
+    }
+
+body {
+    background-color: #edf7f0;
+    }
+
+```
+
+## Litter Observations 
+
+### Summary statistics of litter observations
+
+```{r}
+
+library(tidyverse)
+
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vS7En6nI-RGQDGsy6fBSZ9-rXRw8QgJygam8eZmn2WdjoUoLgePxkkleGn-pOpYUFKJsmCbQC-ofazr/pub?output=csv")
+
+latest_data <- logged_data %>%
+  rename(Litter_quantity = 2,
+         Litter_type = 3,
+         Bin_present = 4,
+         Bin_overflow = 5,
+         Littering = 6) 
+
+latest_data_longer <- latest_data %>%
+  separate_rows(Litter_type, sep = ", ")
+
+paste( "The mean number of litter items found during an observation is", mean(latest_data$Litter_quantity)%>% round(1) )
+
+paste( "The median number of litter items found during an observation is", median(latest_data$Litter_quantity)%>% round(1) )
+
+paste("The total number of litter items observed is", sum(latest_data$Litter_quantity))
+
+paste("The greatest number of litter items in one observation is", max(latest_data$Litter_quantity))
+
+```
+
+
+### Bar charts of litter observations 
+
+```{r}
+type_plot <- ggplot(data = latest_data_longer) +
+  geom_bar(aes(y = Litter_type)) +
+  labs(title = "Frequency of litter category in observations",
+       y = "Litter category",
+       x = "Count")
+
+type_plot
+
+quantity_bin_plot <- ggplot(data = latest_data)+
+  geom_bar(aes(x = Litter_quantity, fill = Bin_present)) + 
+  labs (title = "The frequency of litter quantity in relation to rubbish bin availability",
+        x = "Litter quantity", 
+        y = "Count of observations")
+
+quantity_bin_plot
+
+```
+
+```{r}
+
+library(magick)
+
+#making gif 
+
+square_one <- image_read("https://resizing.flixster.com/TwLV-0Dwy-0vxTvXZE5iemtWecg=/fit-in/352x330/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p2222466_e_h9_ad.jpg") %>%
+  image_scale(400)
+
+square_two <- image_read("https://pbs.twimg.com/media/EaA13O7VAAUHzdQ.jpg") %>%
+  image_scale(400)
+
+Gif <- c(square_one, square_two)
+
+Animation <- image_animate(Gif, fps = 2)
+
+Animation
+
+```
+
